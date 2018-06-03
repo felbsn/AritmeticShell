@@ -13,5 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="CVector">
+      <UniqueIdentifier>{07ce9a36-1d7e-418c-ae83-dfbd48c297e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CStack">
+      <UniqueIdentifier>{531d300c-8102-4e50-887e-1d65e6a67eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example">
+      <UniqueIdentifier>{56849acd-5dee-43bb-820c-10e5b15ad3a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{54fcf038-244b-469e-bde5-99a7d626e8a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Examples\FunctionSolver.h">
+      <Filter>Example</Filter>
+    </ClInclude>
+    <ClInclude Include="CVector\CVector.h">
+      <Filter>CVector</Filter>
+    </ClInclude>
+    <ClInclude Include="CVector\CVectorFunctors.h">
+      <Filter>CVector</Filter>
+    </ClInclude>
+    <ClInclude Include="CVector\CVectorImp.h">
+      <Filter>CVector</Filter>
+    </ClInclude>
+    <ClInclude Include="CVector\CVectorTypedef.h">
+      <Filter>CVector</Filter>
+    </ClInclude>
+    <ClInclude Include="CVector\CVectorUtils.h">
+      <Filter>CVector</Filter>
+    </ClInclude>
+    <ClInclude Include="CStack\CStack.h">
+      <Filter>CStack</Filter>
+    </ClInclude>
+    <ClInclude Include="CStack\CStackImp.h">
+      <Filter>CStack</Filter>
+    </ClInclude>
+    <ClInclude Include="CStack\CStackTypedef.h">
+      <Filter>CStack</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\ColorConsole.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
