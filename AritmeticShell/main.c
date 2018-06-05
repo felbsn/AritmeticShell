@@ -2,19 +2,15 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "Examples/FunctionSolver.h"
+#include "Solver/FunctionSolver.h"
 
 int main(int argc, char ** argv)
 {
 
-	while (1)
-	{
 		char *str = 0;
-		if (argc > 1)
+		if (argc > 1) // if there is custom file name parameter
 		{
 			FILE *fi = fopen(argv[1], "r");
-
-
 			if (fi)
 			{
 				str = (char*)malloc(sizeof(char) * 1024);
@@ -32,14 +28,32 @@ int main(int argc, char ** argv)
 				printf("Cannot open file !");
 			}
 		}
-		else
+		else // default file name 'input.txt'
 		{
-			printf("-> You have to pass file name as an argument to process file...\n");
+			FILE *fi = fopen("input.txt", "r");
+			if (fi)
+			{
+				str = (char*)malloc(sizeof(char) * 1024);
+				*str = 0;
+				while (!feof(fi))
+				{
+					char lineBuffer[256];
+					fgets(lineBuffer, 255, fi);
+					strcat(str, lineBuffer);
+
+				}
+			}
+			else
+			{
+				printf("-> You have to pass file name as an argument to process file...\n");
+			}
 
 		}
+
+		//start routine
 		SolverRoutine(str);
 
 		system("pause");
-	}
+	
 }
 

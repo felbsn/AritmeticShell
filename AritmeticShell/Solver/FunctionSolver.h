@@ -212,7 +212,7 @@ int ParseFloat(const char* str, float *outValue)
 			index++;
 			str++;
 		}
-		val += ((float)decimalPart / pow(10, index));
+		val += ((float)decimalPart / (float)pow(10, index));
 		advance += index + 1;
 
 	}
@@ -223,9 +223,12 @@ int ParseFloat(const char* str, float *outValue)
 
 void printStack(const char* name, CStackElement stack)
 {
-	setColor(C_WHITE);
 	printf(" %s : ", name);
 	int i;
+	if (stack.size == 0)
+	{
+		printf(" empty ");
+	}else
 	for (i = 0; i < stack.size; i++)
 	{
 		PrintElement(stack.data[i]);
@@ -315,7 +318,11 @@ int SolveFromInput(const char * path)
 int SolveFunction(CStackElement postFix, float *out)
 {
 	if (postFix.size > 1)
+	{
+		setColor(C_WHITE);
 		printStack("PostFix", postFix);
+	}
+		
 	int flag = 1;
 
 	VectorClear(stack);
@@ -396,19 +403,26 @@ int SolveFunction(CStackElement postFix, float *out)
 					res = a * b;
 					break;
 				case powProc:
-					res = pow(a, b);
+					res = (float)pow(a, b);
 					break;
 				default:
 					res = b;
 					break;
 				}
 				StackPush(stack, ElementImmediate(res));
+
+
 			}
 		}
 		break;
 		default:
 			break;
 		}
+
+		setColor(C_CYAN);
+		printStack("Stack", stack);
+
+
 
 	}
 
@@ -583,12 +597,15 @@ int SolverRoutine(char* strIn)
 	VectorInit(bufferVec);
 
 
-
+	// if given input available , process input string
 	if (strIn != 0)
 	{
 		setColors(C_BLUE, CB_WHITE);
-		printf("() Input accepted succesfully ()\n");
+		printf("() Input accepted succesfully ()\n\n");
 		setColor(CB_BLACK);
+
+		// actually semi-colon symbol is already registered at solver
+		// but we delim string by ';'  for generating separate output steps
 		char* delim = strtok(strIn, ";\n");
 		while (delim != 0)
 		{
@@ -596,9 +613,10 @@ int SolverRoutine(char* strIn)
 			printf(">>> %s\n", delim);
 			StackClear(postFix);
 
-
+			//passing command to parser , to generate postfix
 			int pRes = ParseFunction(delim);
 
+			//solve parsed postfix
 			float result;
 			int flag = SolveFunction(postFix, &result);
 			if (flag == 1)
@@ -628,13 +646,14 @@ int SolverRoutine(char* strIn)
 
 	while (1)
 	{
+		// artimetic shell loop
 
 		StackClear(postFix);
 		setColor(C_CYAN);
 		// get input string
 		VectorGetLine(&bufferVec, 255);
 
-		// here try to cath some functions such as clear and reset
+		// here try to cath some functions such as clear and reset ...
 		if (strcmp(bufferVec.data, "clear") == 0)
 		{
 			clear();

@@ -19,17 +19,14 @@
     <Filter Include="CStack">
       <UniqueIdentifier>{531d300c-8102-4e50-887e-1d65e6a67eb4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Example">
-      <UniqueIdentifier>{56849acd-5dee-43bb-820c-10e5b15ad3a1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utilities">
       <UniqueIdentifier>{54fcf038-244b-469e-bde5-99a7d626e8a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Solver">
+      <UniqueIdentifier>{77844d4f-722d-418b-84b5-4410bf6ba319}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Examples\FunctionSolver.h">
-      <Filter>Example</Filter>
-    </ClInclude>
     <ClInclude Include="CVector\CVector.h">
       <Filter>CVector</Filter>
     </ClInclude>
@@ -56,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="Utilities\ColorConsole.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Solver\FunctionSolver.h">
+      <Filter>Solver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -123,7 +123,7 @@
     <ClInclude Include="CVector\CVectorImp.h" />
     <ClInclude Include="CVector\CVectorTypedef.h" />
     <ClInclude Include="CVector\CVectorUtils.h" />
-    <ClInclude Include="Examples\FunctionSolver.h" />
+    <ClInclude Include="Solver\FunctionSolver.h" />
     <ClInclude Include="Utilities\ColorConsole.h" />
   </ItemGroup>
   <ItemGroup>
